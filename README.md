@@ -40,6 +40,6 @@ Tool names (dog) are arbitrary and not meant to replace or imitate standard Unix
 
 ### Current Tools
 
-Currently i have the following tools implemented:
+Currently I have the following tools implemented:
 - dog (cat)
 - mute (echo)
