@@ -6,23 +6,21 @@ LD      = ld
 SRC_DIR = src
 BUILD   = build
 
-SRC     = $(SRC_DIR)/main.s
-OBJ     = $(BUILD)/dog.o
-BIN     = $(BUILD)/dog
+SRCS    = $(wildcard $(SRC_DIR)/*.s)
+BINS    = $(patsubst $(SRC_DIR)/%.s,$(BUILD)/%,$(SRCS))
 
-all: $(BIN)
+all: $(BUILD) $(BINS)
 
 $(BUILD):
 	mkdir -p $(BUILD)
 
-$(OBJ): $(SRC) | $(BUILD)
-	$(AS) $(SRC) -o $(OBJ)
+# compile each .s into its own binary
+$(BUILD)/%: $(SRC_DIR)/%.s | $(BUILD)
+	$(AS) $< -o $(BUILD)/$*.o
+	$(LD) $(BUILD)/$*.o -o $@
 
-$(BIN): $(OBJ)
-	$(LD) $(OBJ) -o $(BIN)
-
-run: $(BIN)
-	./$(BIN)
+run: all
+	@echo "Run with: ./build/<program_name>"
 
 clean:
 	rm -rf $(BUILD)
