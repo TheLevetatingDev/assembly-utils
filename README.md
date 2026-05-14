@@ -6,18 +6,23 @@ Each tool is written close to the metal: raw syscalls, no libc, no standard libr
 
 ### Build
 
-`make`
+```
+make
+```
 
 ### Run
 
-`./build/dog file.txt`
-
+```
+./build/dog file.txt
+```
 
 Each tool compiles into its own standalone binary.
 
 ### Clean
 
-`make clean`
+```
+make clean
+```
 
 ### Philosophy
 
