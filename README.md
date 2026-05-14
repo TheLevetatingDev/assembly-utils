@@ -37,3 +37,9 @@ Early experimental project. Expect instability, gaps, and constant change.
 ### Naming
 
 Tool names (dog) are arbitrary and not meant to replace or imitate standard Unix utilities directly.
+
+### Current Tools
+
+Currently i have the following tools implemented:
+- dog (cat)
+- mute (echo)
